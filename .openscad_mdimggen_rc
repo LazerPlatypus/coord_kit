@@ -1,5 +1,0 @@
-docs_dir: "docs"
-image_root: "docs/_images"
-file_prefix: "Figure-"
-source_files: "docs/*.md"
-png_animations: false
