@@ -39,8 +39,9 @@ Download and place in your OpenSCAD library directory:
 include <deps/coord_kit/core.scad>
 
 // Use coord_kit functions
-points = make_circle_points(radius=10, segments=32);
-polygon(points);
+coords = points_to_coords([[0, 0, 2], [10, 0, 2], [10, 10, 2], [0, 10, 2]]);
+// extrude into 3D
+linear_extrude(height = 5) { polygon(coords); };
 ```
 
 ### If installed in OpenSCAD libraries directory:
@@ -49,8 +50,9 @@ polygon(points);
 include <coord_kit/core.scad>
 
 // Use coord_kit functions
-points = make_circle_points(radius=10, segments=32);
-polygon(points);
+coords = points_to_coords([[0, 0, 2], [10, 0, 2], [10, 10, 2], [0, 10, 2]]);
+// extrude into 3D
+linear_extrude(height = 5) { polygon(coords); };
 ```
 
 ## Documentation
