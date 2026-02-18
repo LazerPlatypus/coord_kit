@@ -1,0 +1,6 @@
+DocsDirectory: docs
+TargetProfile: wiki
+ProjectName: Your Project Name
+GenerateDocs: Files, ToC, Index, Topics, CheatSheet
+IgnoreFiles:
+    deps/*

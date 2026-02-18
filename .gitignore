@@ -1,0 +1,27 @@
+# Build artifacts (regenerate with `make`)
+build/
+
+# Python virtual environment for openscad_docsgen
+venv/
+.venv/
+*.pyc
+__pycache__/
+
+# OpenSCAD temp files
+*.gch
+*.bak
+.scad-deps
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*~
+.vscode/
+.idea/
+
+# Test output images (timestamped)
+# Note: Keep baseline test images, ignore timestamped outputs
+test/*_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_*.png
