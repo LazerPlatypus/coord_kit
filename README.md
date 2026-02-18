@@ -4,7 +4,7 @@ A coordinate-based geometry manipulation library for OpenSCAD.
 
 ## Overview
 
-`coord_kit` provides functions for working with 2D and 3D coordinates in OpenSCAD, including point generation, transformation, and extrusion utilities.
+`coord_kit` provides functions for working with 2D and 3D coordinates in OpenSCAD, including point generation, transformation, and extrusion utilities. It is basically a thin wrapper around [Kurt Hutten's Round-Anything library](https://github.com/Irev-Dev/Round-Anything/tree/master) that I found handy.
 
 **Key Features:**
 - Point-based geometry creation
@@ -20,7 +20,7 @@ Add to your project as a git submodule:
 
 ```bash
 cd your-project
-git submodule add https://github.com/yourusername/coord_kit.git deps/coord_kit
+git submodule add https://github.com/LazerPlatypus/coord_kit.git deps/coord_kit
 git submodule update --init --recursive
 ```
 
@@ -56,7 +56,35 @@ polygon(points);
 ## Documentation
 
 - **[API Reference](docs/)** - Complete function and module documentation
-- **[Examples](examples/)** - Usage examples with rendered images
+
+## Usage Examples
+
+### Creating Points
+
+```scad
+include <deps/coord_kit/core.scad>
+
+// create coords for a square
+coords = points_to_coords([[0, 0], [10, 0], [10, 10], [0, 10]]);
+// extrude into 3D
+linear_extrude(height = 5) { polygon(coords); };
+
+// create coords for a rounded square
+coords = points_to_coords([[0, 0, 2], [10, 0, 2], [10, 10, 2], [0, 10, 2]]);
+ // extrude into 3D
+linear_extrude(height = 5) { polygon(coords); };
+```
+
+### Extrusion
+
+```scad
+include <deps/coord_kit/core.scad>
+
+// extrude into "Y" plane
+planar_linear_extrude(30, plane="Y") { polygon([[0,0],[10,0],[10,10],[0,10]]); }
+```
+
+See [docs/](docs/) for more complete examples & documentation.
 
 ## Development
 
@@ -102,38 +130,9 @@ coord_kit/
 └── Makefile              # Build automation
 ```
 
-## Usage Examples
-
-### Creating Points
-
-```scad
-include <deps/coord_kit/core.scad>
-
-// Generate circle points
-circle_points = make_circle_points(radius=10, segments=32);
-polygon(circle_points);
-
-// Generate arc points
-arc_points = make_arc_points(radius=10, start_angle=0, end_angle=90);
-polygon(arc_points);
-```
-
-### Extrusion
-
-```scad
-include <deps/coord_kit/core.scad>
-
-// Extrude along path
-path = [[0,0], [10,0], [10,10], [0,10]];
-profile = circle(r=1);
-extrude_along_path(path, profile);
-```
-
-See [examples/](examples/) for more complete examples.
-
 ## Dependencies
 
-- **OpenSCAD** 2021.01 or newer
+- **OpenSCAD** 2026.02.11 or newer
 - **Python 3** (for documentation generation only)
 - **openscad-docsgen** (installed automatically with `make setup`)
 
@@ -141,12 +140,7 @@ Optional dependencies in `deps/` are included as git submodules.
 
 ## Contributing
 
-Contributions welcome! Please:
-
-1. Follow the [OpenSCAD Style Guide](../openscad_guide/)
-2. Document all public functions using openscad_docsgen format
-3. Add examples for new features
-4. Run tests before submitting: `make test`
+Contributions welcome!
 
 ## License
 
@@ -162,8 +156,8 @@ Full license text available in the [LICENSE](LICENSE) file.
 
 ## Support
 
-- **Issues:** [GitHub Issues](https://github.com/yourusername/coord_kit/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/yourusername/coord_kit/discussions)
+- **Issues:** [GitHub Issues](https://github.com/LazerPlatypus/coord_kit/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/LazerPlatypus/coord_kit/discussions)
 - **Documentation:** [docs/](docs/)
 
 ---
