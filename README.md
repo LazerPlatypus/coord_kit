@@ -159,7 +159,6 @@ Full license text available in the [LICENSE](LICENSE) file.
 ## Support
 
 - **Issues:** [GitHub Issues](https://github.com/LazerPlatypus/coord_kit/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/LazerPlatypus/coord_kit/discussions)
 - **Documentation:** [docs/](docs/)
 
 ---
